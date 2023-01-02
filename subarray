@@ -21,3 +21,16 @@
         }
         
         return {-1};
+
+
+// 2. maximum sum in subaray - kadane algo
+
+ long long local = 0, global=INT_MIN;
+        
+        for(int i=0;i<n;i++){
+            local += arr[i];
+            global = max(global, local);
+            if(local < 0 ) local = 0;
+        }
+        
+        return global;
