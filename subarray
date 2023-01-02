@@ -1,0 +1,23 @@
+// 1. subarray with given sum:
+
+ if(s == 0) return {-1};
+    
+        
+        int i=0,j=0;
+        long long curSum = 0;
+        
+        while(i<n && j<=n){
+            if(curSum < s){
+                curSum+=arr[j];
+                j++;
+            }
+            else if(curSum > s){
+                curSum -= arr[i];
+                i++;
+            }
+            else{
+                return {i+1,j};
+            }
+        }
+        
+        return {-1};
