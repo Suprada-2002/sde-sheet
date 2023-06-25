@@ -2,7 +2,16 @@
 #include <vector>
 #include <stack>
 #include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+
+int firstOccurence(string str, string s){
+    if(str.length() == 0) return -1;
+
+    int in = str.find(s); //return -1 for not found else first index of substr
+    if(in != string::npos) return in; //check if in is -1
+    return -1;
+}
 
 void validParenthesis(string s){
     stack<char> st;
@@ -40,6 +49,7 @@ void longestCommonPrefix(vector<string> a){
 int main(){
     vector<string> a {"abcvvvv","abvvvv","abccccc"};
     //longestCommonPrefix(a);
-    validParenthesis("{[()]");
+    //validParenthesis("{[()]");
+    cout<<firstOccurence("ghhhjhjg", "jh")<<endl;
     return 0;
 }
