@@ -1,17 +1,23 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int num = 7895;
-    long reverse = 0;
-
+long reverse(int num){
+   long rev = 0;
+    if(num <= 0) return 0;
     while(num != 0){
-        int r = num%10;
-        reverse= reverse*10+r;
+        rev= rev*10+ num%10;
         num/=10;
     }
+    cout<<rev;
+    if(rev>INT8_MAX || rev<INT8_MIN) return 0;
+    return rev;
+}
 
-    if(reverse>INT8_MAX || reverse<INT8_MIN) return 0;
-    cout<<reverse;
+int main(){
+    int num = 112211;
+    int temp = num;
+    long rev = reverse(temp);
+    
+    
     return 0;
 }
