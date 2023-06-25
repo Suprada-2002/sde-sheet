@@ -5,6 +5,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+string countAndSay(int n){
+    if(n == 1) return "1";
+    if(n == 2) return "11";
+
+    string str = "11";
+    for(int j=3;j<=n;j++){
+        int count=1;
+        string temp = "";
+        str+='$';
+        int len = str.length();
+        for(int i= 1;i<len;i++){
+            if(str[i-1] != str[i]){
+                temp+=to_string(count);
+                temp+=str[i-1];
+                count = 1;
+            }
+            else count++;
+        }
+        //cout<<temp<<endl;
+        str=temp;
+    }
+    return str;
+}
+
 int firstOccurence(string str, string s){
     if(str.length() == 0) return -1;
 
@@ -50,6 +74,7 @@ int main(){
     vector<string> a {"abcvvvv","abvvvv","abccccc"};
     //longestCommonPrefix(a);
     //validParenthesis("{[()]");
-    cout<<firstOccurence("ghhhjhjg", "jh")<<endl;
+    //cout<<firstOccurence("ghhhjhjg", "jh")<<endl;
+    cout<<countAndSay(3);
     return 0;
 }
