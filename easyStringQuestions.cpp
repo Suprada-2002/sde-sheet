@@ -5,6 +5,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int lonelyInteger( vector<int> a){
+    int ans;
+    map<int,int> mp;
+    for(int i=0;i<a.size();i++){
+        mp[a[i]]++;
+    }
+    for(auto x:mp){
+        if(x.second == 1) ans = x.first;
+    }
+    return ans;
+}
+
 string countAndSay(int n){
     if(n == 1) return "1";
     if(n == 2) return "11";
@@ -72,9 +84,11 @@ void longestCommonPrefix(vector<string> a){
 
 int main(){
     vector<string> a {"abcvvvv","abvvvv","abccccc"};
+    vector<int> ar{4,4,4,7,8,7,8,0};
     //longestCommonPrefix(a);
     //validParenthesis("{[()]");
     //cout<<firstOccurence("ghhhjhjg", "jh")<<endl;
-    cout<<countAndSay(3);
+    //cout<<countAndSay(3);
+    cout <<lonelyInteger(ar);
     return 0;
 }
